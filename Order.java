@@ -56,6 +56,12 @@ public class Order {
             System.out.println("Item " + item.getNama() + " sedang tidak tersedia.");
             return false;
         }
+        if (hitungItemDalamOrder(item) + 1 > item.getStok()) {
+            System.out.println(
+                "Item " + item.getNama() + " tidak dapat ditambah karena jumlah pesanan melebihi stok tersedia."
+            );
+            return false;
+        }
 
         items[jumlahItem] = item;
         jumlahItem++;
@@ -80,13 +86,26 @@ public class Order {
             return false;
         }
 
+        MenuItem itemStokTidakCukup = cariItemStokTidakCukup();
+        if (itemStokTidakCukup != null) {
+            System.out.println(
+                "Order " + orderId + " tidak dapat diproses karena stok "
+                    + itemStokTidakCukup.getNama() + " tidak mencukupi."
+            );
+            return false;
+        }
+
         double total = hitungTotal();
         if (!customer.bayar(total)) {
             return false;
         }
 
         for (int i = 0; i < jumlahItem; i++) {
-            items[i].kurangiStok();
+            if (!items[i].kurangiStok()) {
+                // This path is unreachable in the single-threaded console flow because
+                // all required stock was revalidated before payment.
+                throw new IllegalStateException("Stok berubah saat order sedang diproses.");
+            }
         }
         customer.tambahPoin(jumlahItem);
         status = "SELESAI";
@@ -122,5 +141,25 @@ public class Order {
         }
         System.out.printf("Total    : Rp %,.0f%n", hitungTotal());
         System.out.println("----------------------------------------");
+    }
+
+    private int hitungItemDalamOrder(MenuItem target) {
+        int jumlah = 0;
+        for (int i = 0; i < jumlahItem; i++) {
+            if (items[i] == target) {
+                jumlah++;
+            }
+        }
+        return jumlah;
+    }
+
+    private MenuItem cariItemStokTidakCukup() {
+        for (int i = 0; i < jumlahItem; i++) {
+            MenuItem item = items[i];
+            if (hitungItemDalamOrder(item) > item.getStok()) {
+                return item;
+            }
+        }
+        return null;
     }
 }

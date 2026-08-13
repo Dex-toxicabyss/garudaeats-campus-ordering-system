@@ -11,7 +11,7 @@ GarudaEats is a Java console prototype for a digital campus cafeteria ordering f
 | Menu management | Up to 50 `MenuItem` objects, searchable by name and filterable by category. |
 | Customer wallet | Digital balance top-up, payment validation, and loyalty points. |
 | Order flow | Up to 10 menu-item objects per order, with pending, completed, and cancelled states. |
-| Stock accuracy | Stock only decreases after a successful payment. |
+| Stock accuracy | Duplicate menu items cannot exceed available stock; the entire order is revalidated before payment and stock only decreases after a successful payment. |
 | Demo cases | One successful order, one insufficient-balance order, and one cancelled order. |
 | Encapsulation | Every field in `MenuItem`, `Customer`, `Order`, and `Kantin` is private. |
 
