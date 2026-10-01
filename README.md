@@ -50,7 +50,7 @@ The `Main` class intentionally walks through three scenarios: a successful order
 
 ## Assignment documentation
 
-The accompanying [`README-102042500123.pdf`](README-102042500123.pdf) contains the assignment-oriented explanation, class diagram, implementation decisions, demo scenario, and OOP reflection.
+The accompanying contains the assignment-oriented explanation, class diagram, implementation decisions, demo scenario, and OOP reflection.
 
 ## Scope
 
