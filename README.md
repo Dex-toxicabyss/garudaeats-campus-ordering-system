@@ -1,46 +1,57 @@
 # GarudaEats — Campus Cafeteria Ordering System
 
-GarudaEats is a Java console prototype for a digital campus cafeteria ordering flow. The project was created for **Tugas Individu #1 Pemrograman Berorientasi Objek 2026**, with the brief's required focus on object/class design, array objects, constructor overloading, methods, and encapsulation.
-
-> This repository is deliberately separate from the Week 14 Campus Cafeteria project. The two assignments test different concepts: GarudaEats intentionally uses **no inheritance, abstract class, or interface**, as required by this brief.
+A Java console prototype for a campus cafeteria ordering flow. This project was created for an individual Object-Oriented Programming assignment and focuses on classes, constructors, encapsulation, arrays of objects, and method-driven business behavior.
 
 ## Features
 
-| Feature | Implementation |
-| --- | --- |
-| Menu management | Up to 50 `MenuItem` objects, searchable by name and filterable by category. |
-| Customer wallet | Digital balance top-up, payment validation, and loyalty points. |
-| Order flow | Up to 10 menu-item objects per order, with pending, completed, and cancelled states. |
-| Stock accuracy | Duplicate menu items cannot exceed available stock; the entire order is revalidated before payment and stock only decreases after a successful payment. |
-| Demo cases | One successful order, one insufficient-balance order, and one cancelled order. |
-| Encapsulation | Every field in `MenuItem`, `Customer`, `Order`, and `Kantin` is private. |
+- Menu management with a fixed capacity of 50 menu items
+- Name search and category filtering
+- Customer balance top-up and payment validation
+- Loyalty points based on purchased items
+- Orders with a maximum of 10 items
+- Stock checks before adding and completing an order
+- Successful, insufficient-balance, and cancelled-order demonstrations
+- Private fields across the core domain classes
 
-## Required class structure
+## Domain model
+
+| Class | Responsibility |
+| --- | --- |
+| `Kantin` | Stores menu items, creates orders, and summarizes activity |
+| `MenuItem` | Represents a menu item, price, category, and stock |
+| `Customer` | Holds identity, balance, and loyalty points |
+| `Order` | Tracks items, status, total, payment, and stock updates |
+| `Main` | Runs the complete demonstration scenario |
+
+## Repository structure
 
 ```text
-garudaeats-campus-ordering-system/
 ├── MenuItem.java
 ├── Customer.java
 ├── Order.java
 ├── Kantin.java
 ├── Main.java
-├── README-102042500123.pdf
-└── README.md
+├── README.md
+└── README-102042500123.pdf
 ```
 
 ## Run locally
 
-The program uses only the Java standard library. Compile and run from the repository root:
+The program uses only the Java standard library. With a JDK installed, run:
 
 ```bash
 javac *.java
 java Main
 ```
 
+## What to look for
+
+The `Main` class intentionally walks through three scenarios: a successful order, an order rejected because the customer balance is insufficient, and a cancelled order. The output also shows menu search, category filtering, stock changes, and customer points.
+
 ## Assignment documentation
 
-The required submission document is included as [`README-102042500123.pdf`](README-102042500123.pdf). It contains the student identity, system description, class diagram, implementation decisions, demo scenario, and OOP reflection required by the brief.
+The accompanying [`README-102042500123.pdf`](README-102042500123.pdf) contains the assignment-oriented explanation, class diagram, implementation decisions, demo scenario, and OOP reflection.
 
-## Academic integrity note
+## Scope
 
-Use this repository as material you can explain confidently. The assignment states that submitted code may be audited; review each class, method, and scenario before using it for assessment.
+This is a console-based academic prototype. It does not include a database, web UI, authentication, payment gateway, or concurrent order processing.
