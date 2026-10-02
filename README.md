@@ -55,3 +55,33 @@ The accompanying contains the assignment-oriented explanation, class diagram, im
 ## Scope
 
 This is a console-based academic prototype. It does not include a database, web UI, authentication, payment gateway, or concurrent order processing.
+## Portfolio evidence
+
+### Project responsibility
+
+Individual academic project focused on the domain model, order lifecycle, customer balance, stock validation, and console demonstration.
+
+### Example workflow
+
+```text
+Create menu → Search/filter menu → Create order → Add items
+→ Validate stock and balance → Complete or cancel order
+```
+
+### Validation scenarios
+
+- Successful order with balance deduction and stock reduction
+- Rejected order when customer balance is insufficient
+- Cancelled order that does not proceed to payment
+- Menu search and category filtering
+- Customer loyalty-point update after a completed order
+
+## Limitations
+
+- Data is held in memory and resets on restart.
+- The interface is console-only.
+- No database, authentication, payment gateway, or concurrent-order handling is included.
+
+## Usage policy
+
+No open-source license is included. This repository is published for portfolio and academic reference; reuse should be requested from the author.
