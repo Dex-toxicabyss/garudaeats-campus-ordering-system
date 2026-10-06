@@ -32,7 +32,8 @@ A Java console prototype for a campus cafeteria ordering flow. This project was 
 ├── Kantin.java
 ├── Main.java
 ├── README.md
-└── README-102042500123.pdf
+└── docs/
+    └── CLASS_DIAGRAM.md
 ```
 
 ## Run locally
@@ -50,11 +51,12 @@ The `Main` class intentionally walks through three scenarios: a successful order
 
 ## Assignment documentation
 
-The accompanying contains the assignment-oriented explanation, class diagram, implementation decisions, demo scenario, and OOP reflection.
+The [`docs/CLASS_DIAGRAM.md`](docs/CLASS_DIAGRAM.md) file contains the class diagram and assignment-oriented design notes.
 
 ## Scope
 
 This is a console-based academic prototype. It does not include a database, web UI, authentication, payment gateway, or concurrent order processing.
+
 ## Portfolio evidence
 
 ### Project responsibility
