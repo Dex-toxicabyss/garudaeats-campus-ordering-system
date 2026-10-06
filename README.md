@@ -82,6 +82,6 @@ Create menu → Search/filter menu → Create order → Add items
 - The interface is console-only.
 - No database, authentication, payment gateway, or concurrent-order handling is included.
 
-## Usage policy
+## License
 
-No open-source license is included. This repository is published for portfolio and academic reference; reuse should be requested from the author.
+This repository is licensed under the [MIT License](LICENSE). The license applies to the original source and documentation included in this repository. Third-party dependencies, frameworks, fonts, images, and other external materials remain subject to their respective licenses and attribution requirements.
